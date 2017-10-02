@@ -1,0 +1,41 @@
+
+  stats: {
+    warnings: false,
+    clientLogLevel: 'none',
+  },
+ 
+  devServer: {
+    preformance: {
+      hints: false
+    },
+    clientLogLevel: 'none',
+  stats: {
+    colors: true,
+    hash: false,
+    version: false,
+    timings: false,
+    assets: false,
+    chunks: false,
+    modules: false,
+    reasons: false,
+    children: false,
+    source: false,
+    errors: false,
+    errorDetails: false,
+    warnings: false,
+    publicPath: false
+  }
+ },
+  /*
+  entry: "./entry.js",
+  output: {
+    path: __dirname,
+    filename: "bundle.js"
+  },*/
+  /*
+  entry: './index.js',
+  output: {
+    path: __dirname,
+    filename: 'fastOpt-library.js'
+  },
+  */
