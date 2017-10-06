@@ -1,0 +1,3 @@
+[submodule "webpack_hotreload_issue"]
+	path = webpack_hotreload_issue
+	url = https://github.com/kishoremvrs/webpack_hotreload_issue.git

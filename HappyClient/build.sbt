@@ -6,6 +6,7 @@ lazy val webClientSettings = Seq(
   organization := "scalavision",
   scalacOptions ++= compileOptions.value,
   scalacOptions in Test ++= Seq("-Yrangepos"),
+  scalaJSUseMainModuleInitializer := true,
   mainClass := Some("client.Main"),
   useYarn := true,
   copyIndex := {
@@ -16,11 +17,17 @@ lazy val webClientSettings = Seq(
   webpackBundlingMode := BundlingMode.LibraryOnly(),
 //  webpackBundlingMode := BundlingMode.Application,
 //  webpackDevServerExtraArgs := Seq("--client-log-level:none", "--inline", "--quite", "--no-info"),
+//  webpackDevServerExtraArgs := Seq("--inline", "--content-base assets"),
   webpackDevServerExtraArgs := Seq("--inline"),
 //  webpackMonitoredDirectories += baseDirectory.value / ,
 //  includeFilter in webpackMonitoredFiles ++= Seq("*.js", "*.html", "*.css"),
   webpackConfigFile in fastOptJS := Some(baseDirectory.value / "base.webpack.config.js"),
+  additionalNpmConfig in Compile ++= Map(
+
+  ),
   npmDevDependencies in Compile ++= Seq(
+//    "webpack" -> "",
+//    "path" -> 
     "webpack-merge" -> "4.1.0",
     "html-webpack-plugin" -> "2.30.1",
     "html-loader" -> "0.5.0",

@@ -5,7 +5,16 @@
   <title><%= htmlWebpackPlugin.options.title %></title>
 </head>
 <body>
-  <!-- script type="text/javascript" src="happy-web-components-fastopt-loader.js"></script-->
+  <!-- the order of things  are: -library, -loader, -fastopt itself, -entrypoint doesn't seem to be used-->
+  <!-- we comment -library because that is put in there by scalajs-bundler LibraryOnly setting ??? -->
+
+  <!-- script type="text/javascript" src="happy-web-components-fastopt-library.js"></script -->
+
+  <script type="text/javascript" src="happy-web-components-fastopt-loader.js"></script>
+  <!-- This one is also exluded it doesn't seem to be used, maybe if you you export something like -->
+  <!-- JsGlobal or JsExport would make it relevant ..??? -->
+  <!-- script type="text/javascript" src="happy-web-components-fastopt-entrypoint.js"></script -->
   <script type="text/javascript" src="happy-web-components-fastopt.js"></script>
+
 </body>
 </html>

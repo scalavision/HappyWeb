@@ -1,11 +1,37 @@
-var HtmlWebpackPlugin = require('html-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const webpack = require('webpack');
+const resolve = require('path');
 
 module.exports = {
-  plugins: [new HtmlWebpackPlugin({
-    title: 'My App',
-    template: 'index.ejs'
-  })],
+  devServer: {
+    hot: true,
+
+//    contentBase: resolve.join(__dirname, './'),
+/*
+    contentBase : [
+      "assets"
+    ],
+    publicPath: '/',
+
+    historyApiFallback: true
+    */
+  },
+  plugins: [
+    new HtmlWebpackPlugin({
+      title: 'My App',
+      template: 'index.ejs',
+      inject: 'head'
+    }),
+    new webpack.HotModuleReplacementPlugin(),
+    new webpack.NamedModulesPlugin()
+  ],
   module: {
+    rules: [
+      {
+        test: /\.css$/,
+        use: ['style-loader', 'css-loader' ]
+      }
+    ],
     loaders: [
       { test: /\.css$/, loader: "style-loader!css-loader" },
       { test: /\.hbs$/, loader: "handlebars" },
@@ -17,7 +43,8 @@ module.exports = {
         options: {quite: true }},
       {
         test: /\.html$/,
-        loader: '!html-loader',
+        loader: '!html-loader'
+
 /*        use: {
           loader: 'html-loader',
           options: {
